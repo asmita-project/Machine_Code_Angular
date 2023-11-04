@@ -1,0 +1,12 @@
+.tableclass{
+    padding: 15px;
+
+
+}
+
+.headingstyle{
+    padding-top: 15px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}

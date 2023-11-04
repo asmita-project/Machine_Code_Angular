@@ -1,0 +1,103 @@
+<div class="tableclass">
+    <div *ngIf="!productPage">
+        <div class="headingstyle">
+            <h3 style="font-weight: 600;">Manage Product</h3>
+            <span (click)="RedirectProduct()" style="cursor: pointer;">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+    
+            </span>
+        </div>
+        <table class="table table-borderless table-striped table-dark">
+            <thead>
+               
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">package Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">product Type</th>
+                <th scope="col">SC name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of productlist; let i = index; let last = last;">
+                <td >{{data?.name}}</td>
+                <td >{{data?.package_name}}</td>
+                <td >{{data?.type}}</td>
+                <td>{{data?.product_type}}</td>
+                <td>{{data?.sc_name}}</td>
+              </tr>
+             
+            </tbody>
+          </table>
+    </div>
+
+    <div *ngIf="productPage">
+        <form #form1="ngForm">
+            <div class="headingstyle">
+                <h3 style="font-weight: 600;">Add Product</h3>
+                <span style="cursor: pointer;" (click)="backproductpage()">
+                   Back
+        
+                </span>
+            </div>
+            <div class="form-row">
+                <div class="row">
+                    <div class="col-sm-6" style="padding-bottom: 10px;">
+                        <label>Product Name</label>
+                        <input type="text" class="form-control" name="productname" [(ngModel)]="productData.name" placeholder="Product name">
+                      </div>
+                      <div class="col-sm-6">
+                        <label>Category</label>
+                        <select class="form-control" id="category" name="category" [(ngModel)]="productData.category_id"
+                        (change)="getcategorybyid()"
+                        >
+                        <option *ngFor="let data of categorylist; let i=index" [value]="data.id">{{data.name}}</option>
+                      </select>
+                      </div>
+                      <div class="col-sm-6" style="padding-bottom: 10px;">
+                        <label>Super Sub Category</label>
+                        <select class="form-control" id="category" name="supersubcategory" [(ngModel)]="productData.sup_sub_category_id" placeholder="Super Sub Category"
+                        (change)="getsupersubcategorybyid()"
+                        >
+                        <option *ngFor="let supersub of supersubcategorylist; let i=index" [value]="supersub.id">{{supersub.name}}</option>
+                      </select>                    
+                      </div>
+
+                      <div class="col-sm-6" style="padding-bottom: 10px;">
+                        <label>Sub Category</label>
+                        <select class="form-control" id="category" name="subcategory" [(ngModel)]="productData.sub_category_id" placeholder="Sub Category"
+                        >
+                        <option *ngFor="let sub of supersubcategorylist; let i=index" [value]="sub.id">{{sub.name}}</option>
+                      </select>  
+                      </div>
+
+                      <div class="col-sm-6" style="padding-bottom: 10px;">
+                        <label>Comodity Type</label>
+                        <select class="form-control" id="category" name="comoditytype" [(ngModel)]="productData.commodity_type_id" placeholder="Commodity Type"
+                        >
+                        <option *ngFor="let comodity of comoditytypelist;" [value]="comodity.id">{{comodity.name}}</option>
+                      </select>                     
+                       </div>
+
+                      <div class="col-sm-6" style="padding-bottom: 10px;">
+                        <label>Package Type</label>
+                        <select class="form-control" id="category" name="package" [(ngModel)]="productData.package_id" placeholder="Package Type"
+                        >
+                        <option *ngFor="let package of packagelist; let i=index" [value]="package.id">{{package.name}}</option>
+                      </select>  
+                      </div>
+
+                      <div class="col-sm-6" style="padding-top: 10px;">
+                       <div>
+                        <button type="submit" (click)="submitproject()" class="btn btn-warning">Submit</button> &nbsp;
+                        <button class="btn btn-warning">Cancel</button>
+                       </div> 
+                      </div>
+                      
+                </div>
+             
+            </div>
+          </form>
+    </div>
+   
+</div>

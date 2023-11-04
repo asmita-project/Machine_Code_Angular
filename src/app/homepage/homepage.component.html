@@ -1,0 +1,53 @@
+<div class="mainbox">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2">
+      <!-- <a class="navbar-brand" href="#">Logo</a> -->
+     
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" >Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " [routerLink]="['/homepage']" routerLinkActive = "active">Login</a>
+          </li>
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0 searchbarclass">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </nav>
+  </div>
+
+<div>
+    <form #form2="ngForm" class="modal-content animate" >
+          <div class="imgcontainer">
+            <!-- <span class="close" title="Close Modal">&times;</span> -->
+            <img src="../../assets/img_avatar2.png" alt="Avatar" class="avatar">
+          </div>
+      
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="email" placeholder="Enter Username" [(ngModel)]="LoginObject.email" name="email"  class="inputitem"  required>
+      
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" [(ngModel)]="LoginObject.password" name="password" class="inputitem"  required>
+              
+            <button type="submit" [disabled]="!form2.valid" (click)="login()"  >Login</button>
+          
+          </div>
+      
+          <div class="container" style="background-color:#f1f1f1">
+            <button type="button"  class="cancelbtn">Cancel</button>
+            <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+          </div>
+        </form>
+  </div>
